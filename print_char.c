@@ -1,13 +1,11 @@
 #include "main.h"
 /*
  *a function print_char print  a character
- *@args argument list
- *return : the number of characters printed
+ *@c : the character to be printed
+ *return : nothing
  */
-int print_char (va_list args) {
-  char c;
-  c = va_arg(args, int);
-  write(1, &c, 1);
+void print_char (char c) {
   
-  return (1);
+    write(1, &c, 1);
+  
 }
