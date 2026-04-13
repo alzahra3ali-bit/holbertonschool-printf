@@ -11,4 +11,3 @@ int print_char (va_list args) {
   
   return (1);
 }
-#endif
