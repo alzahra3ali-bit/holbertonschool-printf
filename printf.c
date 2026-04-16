@@ -59,7 +59,6 @@ print_char(*format);
 format++;
 }
 va_end(args);
-print_char('\n');
 return (count);
 
 }
