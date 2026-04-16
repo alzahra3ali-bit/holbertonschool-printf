@@ -64,6 +64,11 @@ int _printf(const char *format, ...)
         }
 
         format++;
+        if (*format == '\0')
+        {
+            va_end(args);
+            return (-1);
+        }
     }
 
     va_end(args);
