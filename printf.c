@@ -79,18 +79,23 @@ int _printf(const char *format, ...)
 
 int int_len(int n)
 {
-int len = 0;
-if (n == 0)
-return (1);
-if (n < 0)
-{
-len++;      
-n = -n;
-}
-while (n > 0)
-{
-n /= 10;
-len++;
-}
-return (len);
+    int len = 0;
+    long num = n;   
+
+    if (num == 0)
+        return (1);
+
+    if (num < 0)
+    {
+        len++;
+        num = -num;
+    }
+
+    while (num > 0)
+    {
+        num /= 10;
+        len++;
+    }
+
+    return (len);
 }
