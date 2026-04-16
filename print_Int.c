@@ -25,7 +25,7 @@ int print_Int(int n)
 	}
 
 	if (n / 10)
-		count += print_int(n / 10);
+		count += print_Int(n / 10);
 
 	c = (n % 10) + '0';
 	write(1, &c, 1);
