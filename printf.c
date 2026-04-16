@@ -32,10 +32,6 @@ break;
 case 'c':
 len = va_arg(args, int);
 print_char(len);
-if (format[1] == '\0')
-{
-return (1);
-}
 format++;
 count = count + 1;
 break;
@@ -61,10 +57,8 @@ else
 {
 count++;
 print_char(*format);
-
-format++;
-
 }
+format++;
 }
 va_end(args);
 return (count);
