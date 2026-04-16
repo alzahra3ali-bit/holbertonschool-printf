@@ -4,65 +4,66 @@
 
 int _printf(const char *format, ...)
 {
-va_list args;
-int count = 0;
-int len;
-char* s;
+    va_list args;
+    int count = 0;
+    int len;
+    char *s;
 
-va_start(args, format);
-if (*format == '\0')
-{
-return (-1);
-}
-while (*format != '\0')
-{
+    if (format == NULL)
+        return (-1);
 
-if (*format == '%')
-{   
-format++;
-switch (*format)
-{
-case 's':
-s = va_arg(args, char*);
-print_string(s);
-format++;
-count = count + strlen(s);
-break;
+    va_start(args, format);
 
-case 'c':
-len = va_arg(args, int);
-print_char(len);
-format++;
-count = count + 1;
-break;
+    while (*format)
+    {
+        if (*format == '%')
+        {
+            format++;
 
-case 'd':
-len = va_arg(args, int);
-print_Int(len);
-format++;
-count = count + int_len(len);
-break;
+            switch (*format)
+            {
+                case 's':
+                    s = va_arg(args, char *);
+                    print_string(s);
+                    count += strlen(s);
+                    break;
 
-case 'i':
-len = va_arg(args, int);
-print_Int(len);
-format++;
-count = count + int_len(len);
-break;
+                case 'c':
+                    len = va_arg(args, int);
+                    print_char(len);
+                    count += 1;
+                    break;
 
-}
+                case 'd':
+                case 'i':
+                    len = va_arg(args, int);
+                    print_Int(len);
+                    count += int_len(len);
+                    break;
 
-}
-else
-{
-count++;
-print_char(*format);
-}
-format++;
-}
-va_end(args);
-return (count);
+                case '%':
+                    print_char('%');
+                    count += 1;
+                    break;
 
+                default:
+                    print_char('%');
+                    print_char(*format);
+                    count += 2;
+                    break;
+            }
+        }
+        else
+        {
+            print_char(*format);
+            count++;
+        }
+
+        format++;
+    }
+
+    va_end(args);
+    return (count);
 }
 
 
