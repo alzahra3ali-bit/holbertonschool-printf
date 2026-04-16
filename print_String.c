@@ -20,4 +20,4 @@ int print_string(char *s)
 	}
 
 	return (i);
-}i
+}
