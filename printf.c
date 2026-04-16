@@ -25,6 +25,10 @@ switch (*format)
 case 's':
 s = va_arg(args, char*);
 print_string(s);
+if (format[1] == '\0')
+{
+return (1);
+}
 format++;
 count = count + strlen(s);
 break;
