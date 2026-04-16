@@ -1,0 +1,54 @@
+.TH _PRINTF 3 "April 2026" "Version 1.0" "Custom Library Functions"
+
+.SH NAME
+_printf \- formatted output conversion
+
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The _printf() function produces output according to a format string.
+Output is written to the standard output stream (stdout).
+
+The format string may contain plain text and format specifiers
+introduced by the percent character (%).
+
+Supported format specifiers:
+.TP
+.B %c
+Print a character.
+.TP
+.B %s
+Print a string.
+.TP
+.B %d
+Print a signed decimal integer.
+.TP
+.B %i
+Print a signed decimal integer.
+
+.SH RETURN VALUE
+Upon successful return, _printf() returns the number of characters printed
+(excluding the terminating null byte).
+
+If an error occurs, the function returns -1.
+
+.SH EXAMPLES
+.nf
+#include "main.h"
+
+int main(void)
+{
+    _printf("Hello %s\\n", "World");
+    return (0);
+}
+.fi
+
+.SH AUTHORS
+Written by:
+.br
+AZZAM AL DUYULI
+.br
+Alzahraa Alhussain
