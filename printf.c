@@ -59,8 +59,11 @@ int _printf(const char *format, ...)
         }
         else
         {
+            if (format[1] != '\0')
+            {
             print_char(*format);
             count++;
+            }
         }
 
         format++;
