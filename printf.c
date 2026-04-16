@@ -57,10 +57,14 @@ break;
 }
 
 }
+else
+{
 count++;
 print_char(*format);
 
 format++;
+
+}
 }
 va_end(args);
 return (count);
