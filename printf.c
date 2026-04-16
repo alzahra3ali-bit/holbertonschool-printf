@@ -24,6 +24,10 @@ int _printf(const char *format, ...)
             {
                 case 's':
                     s = va_arg(args, char *);
+                    if (s == NULL)
+                    {
+                        s = "(null)";
+                    }
                     print_string(s);
                     count += strlen(s);
                     break;
